@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@600&family=Montserrat:wght@400;700&display=swap');
+
+:root {
+  --brand-purple: #5C3B9B;
+  --accent-yellow: #F9D342;
+  --soft-lavender: #9C8FC4;
+  --off-white: #FFF9E6;
+  --deep-charcoal: #2B2B2B;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: var(--off-white);
+  color: var(--deep-charcoal);
+  font-family: 'Montserrat', Arial, sans-serif;
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.background-pattern {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+  background: var(--off-white);
+}
+
+/* Dino footprints pattern */
+.background-pattern::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg width="40" height="40" xmlns="http://www.w3.org/2000/svg"><path d="M20 8 Q22 16 28 12 Q24 18 32 20 Q24 20 28 28 Q22 22 20 32 Q18 22 12 28 Q16 20 8 20 Q16 18 12 12 Q18 16 20 8 Z" fill="%239C8FC4" fill-opacity="0.10"/></svg>');
+  background-repeat: repeat;
+  background-size: 80px 80px;
+  opacity: 0.5;
+}
+
+/* Faint dino skull motif */
+.background-pattern::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 600px;
+  height: 600px;
+  transform: translate(-50%, -50%);
+  background: url('data:image/svg+xml;utf8,<svg width="600" height="600" xmlns="http://www.w3.org/2000/svg"><circle cx="300" cy="300" r="280" fill="%239C8FC4" fill-opacity="0.18"/><ellipse cx="210" cy="260" rx="70" ry="60" fill="%235C3B9B" fill-opacity="0.18"/><ellipse cx="390" cy="320" rx="32" ry="28" fill="%235C3B9B" fill-opacity="0.18"/><ellipse cx="300" cy="380" rx="110" ry="55" fill="%23F9D342" fill-opacity="0.12"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.28;
+  filter: drop-shadow(0 8px 32px rgba(44,44,44,0.10));
+  pointer-events: none;
+}
+
+/* Playful geometric shapes */
+.geoshapes {
+  position: fixed;
+  z-index: 1;
+  pointer-events: none;
+  width: 100vw;
+  height: 100vh;
+}
+.geoshapes span {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+.geoshapes .star {
+  width: 32px; height: 32px;
+  background: var(--accent-yellow);
+  left: 8vw; top: 10vh;
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.geoshapes .circle1 {
+  width: 24px; height: 24px;
+  background: var(--brand-purple);
+  right: 10vw; top: 18vh;
+}
+.geoshapes .triangle {
+  width: 0; height: 0;
+  border-left: 18px solid transparent;
+  border-right: 18px solid transparent;
+  border-bottom: 32px solid var(--soft-lavender);
+  left: 12vw; bottom: 12vh;
+  border-radius: 6px;
+  opacity: 0.5;
+}
+.geoshapes .circle2 {
+  width: 18px; height: 18px;
+  background: var(--accent-yellow);
+  right: 7vw; bottom: 8vh;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 0 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.big-logo {
+  width: 420px;
+  max-width: 98vw;
+  margin-top: 48px;
+  margin-bottom: 48px;
+  display: block;
+  box-shadow: 0 4px 24px 0 rgba(156, 143, 196, 0.10);
+  border-radius: 32px;
+}
+
+.logo:not(.big-logo) {
+  width: 140px;
+  height: auto;
+  margin-bottom: 32px;
+  display: block;
+  box-shadow: 0 4px 24px 0 rgba(156, 143, 196, 0.10);
+  border-radius: 24px;
+}
+
+h1 {
+  font-family: 'Fredoka', 'Montserrat', Arial, sans-serif;
+  color: var(--brand-purple);
+  font-size: 2.2rem;
+  text-align: center;
+  margin: 0 0 22px 0;
+  letter-spacing: 0.01em;
+  line-height: 1.15;
+}
+
+.teaser {
+  font-size: 1.15rem;
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--deep-charcoal);
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.signup-form {
+  display: flex;
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 16px;
+  gap: 10px;
+}
+
+.signup-form input[type="email"] {
+  flex: 1;
+  padding: 14px 16px;
+  border: 2px solid var(--brand-purple);
+  border-radius: 10px;
+  font-size: 1.08rem;
+  outline: none;
+  font-family: inherit;
+  background: #fff;
+  transition: border 0.2s;
+}
+
+.signup-form input[type="email"]:focus {
+  border-color: var(--accent-yellow);
+}
+
+.signup-form button {
+  background: var(--brand-purple);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 14px 22px;
+  font-size: 1.08rem;
+  font-family: 'Fredoka', 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px 0 rgba(92, 59, 155, 0.10);
+}
+
+.signup-form button:hover,
+.signup-form button:focus {
+  background: #3d2677;
+}
+
+.privacy-note {
+  font-size: 1rem;
+  color: var(--soft-lavender);
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.social-icons {
+  display: flex;
+  gap: 36px;
+  justify-content: center;
+  margin-top: 40px;
+  align-items: center;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: transform 0.15s, box-shadow 0.15s;
+  border-radius: 50%;
+}
+.social-link:focus, .social-link:hover {
+  transform: scale(1.08);
+  box-shadow: 0 4px 16px 0 rgba(92, 59, 155, 0.12);
+}
+
+.social-svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+}
+
+/* Remove old icon-placeholder and social-handle styles */
+.icon-placeholder, .social-handle { display: none !important; }
+
+@media (max-width: 700px) {
+  .container {
+    max-width: 98vw;
+    padding: 0 4vw;
+  }
+  .big-logo {
+    width: 98vw;
+    min-width: 120px;
+    margin-top: 28px;
+    margin-bottom: 28px;
+  }
+  .logo:not(.big-logo) {
+    width: 90px;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-size: 1.25rem;
+  }
+  .signup-form button {
+    padding: 12px 10px;
+    font-size: 0.98rem;
+  }
+  .social-icons {
+    gap: 20px;
+    margin-top: 28px;
+  }
+  .social-svg {
+    width: 36px;
+    height: 36px;
+  }
+} 
