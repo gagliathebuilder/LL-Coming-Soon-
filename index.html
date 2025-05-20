@@ -22,10 +22,14 @@
       <p class="teaser">
         Get ready, little legends — something epic is on the way! Made for the next generation of heroes, we're crafting fresh, fun grooming products for adventurous dudes who want to look and feel their best. This isn't your average shampoo or gel — it's legendary care that's all about confidence, play, and pure fun. Stay tuned and join the waitlist to be first in line!
       </p>
-      <form class="signup-form">
-        <input type="email" placeholder="Your email" required>
+      <form class="signup-form" action="capture.php" method="post">
+        <input type="email" name="email" placeholder="Your email" required>
+        <input type="hidden" name="csv_file" value="emails.csv">
         <button type="submit">Join the Legend &rarr;</button>
       </form>
+      <div id="thank-you-message" style="display: none; text-align: center; margin-top: 20px; color: var(--brand-purple); font-weight: bold;">
+        Thank you for joining the legend! We'll keep you updated.
+      </div>
       <p class="privacy-note">We respect your inbox and promise only the coolest updates.</p>
       <div class="social-icons">
         <a class="social-link" href="https://www.instagram.com/littlelegendshair/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -44,5 +48,28 @@
       </div>
     </div>
   </main>
+  <script>
+    document.querySelector('.signup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      fetch('capture.php', {
+        method: 'POST',
+        body: formData
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          this.style.display = 'none';
+          document.getElementById('thank-you-message').style.display = 'block';
+        } else {
+          alert('Error: ' + data.message);
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      });
+    });
+  </script>
 </body>
 </html> 

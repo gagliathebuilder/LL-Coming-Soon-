@@ -292,4 +292,24 @@ h1 {
     max-width: 98vw;
     padding: 0 2vw;
   }
+}
+
+#thank-you-message {
+  display: none;
+  text-align: center;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  color: var(--brand-purple);
+  font-size: 1.2rem;
+  font-weight: bold;
+  max-width: 400px;
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 } 
